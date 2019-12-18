@@ -19,21 +19,21 @@ import org.springframework.web.bind.annotation.RequestParam;
 @FeignClient("app-server")
 public interface ServerFeign {
 
-    @PostMapping("/feign/post/simpleParam")
+    @PostMapping("/post/simpleParam")
     Resp_Entity postSimpleParam(@RequestParam("value") String value);// 通过@RequestParam指定形参名
 
-    @GetMapping("/feign/get/simpleParam")
+    @GetMapping("/get/simpleParam")
     Resp_Entity getSimpleParam(@RequestParam("req") String req);
 
-    @PostMapping("/feign/post/mutilSimpleParam")
+    @PostMapping("/post/mutilSimpleParam")
     Resp_Entity postMutilSimpleParam(@RequestParam("arg1") String arg1, @RequestParam("arg2") String arg2);
 
-    @PostMapping(value = "/feign/post/object", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @PostMapping(value = "/post/object", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
     Resp_Entity postJsonString(String request);
 
-    @PostMapping(value = "/feign/post/object")
+    @PostMapping(value = "/post/object")
     Resp_Entity postObject(Req_Entity req);
 
-    @PostMapping(value = "/feign/post/mixParam")
+    @PostMapping(value = "/post/mixParam")
     Resp_Entity postMixParam(@RequestParam("arg") String arg, Req_Entity req);
 }

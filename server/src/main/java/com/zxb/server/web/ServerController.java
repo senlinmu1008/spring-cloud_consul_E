@@ -21,9 +21,8 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @Slf4j
-@RequestMapping("/feign")
 @Api(tags = {"Feign"})
-public class FeignController {
+public class ServerController {
     @Autowired
     private Service service;
 
