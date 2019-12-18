@@ -1,0 +1,30 @@
+server:
+  port: 40200
+spring:
+  application:
+    name: app-client
+  cloud:
+    consul:
+      enabled: true
+      host: 172.16.122.104
+      port: 8500
+      discovery:
+        enabled: true
+        instance-id: ${spring.application.name}-${spring.cloud.client.ipAddress}-${server.port}
+      config: # config配置必须要在bootstrap的配置文件中，更早地被执行读取
+        enabled: true
+        format: YAML # 表示consul上面文件的格式 有四种 YAML PROPERTIES KEY-VALUE FILES
+        data-key: configuration # 表示consul上面的KEY值(或者说文件的名字) 默认是data
+
+# swagger
+swagger:
+  docket:
+    client:
+      title: client
+      description: client接口测试
+      version: 1.0
+      contact:
+        name: zhaoxb
+      base-package: com.zxb.client.web
+      base-path: /**
+      exclude-path: /error, /ops/**
