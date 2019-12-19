@@ -1,5 +1,6 @@
 # zuul(一)
-没有注册中心管理服务，靠手动维护url和实例的映射关系
+* 没有注册中心管理服务，靠手动维护url和实例的映射关系
+* 启动类添加注解`@EnableZuulProxy`
 
 ## 单实例
 通过一组`zuul.routes.<route>.path`与`zuul.routes.<route>.url`参数对的方式配置，比如：
