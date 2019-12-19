@@ -1,0 +1,19 @@
+server:
+  port: 40001
+spring:
+  application:
+    name: zuul-no-register
+
+zuul:
+  routes:
+    # zuul根据path和url映射关系直接调用目标服务
+    single-instance:
+      path: /single-instance-service/**
+      url: http://127.0.0.1:40200/
+    # zuul根据path和serviceId(自定义，与应用名无关)映射关系找到具体实例，手动维护服务与实例的关系
+    multi-instance:
+      path: /multi-instance-service/**
+      serviceId: multi-instance-consul-client
+multi-instance-consul-client:
+  ribbon:
+    listOfServers: http://127.0.0.1:40200/,http://127.0.0.1:40201/
