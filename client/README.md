@@ -113,5 +113,7 @@ ribbon:
 多个client可以用逗号分隔。
 ##### 启动日志输出
 ```Java
-2019-12-19 19:36:18,798 [INFO] [main] [com.netflix.loadbalancer.BaseLoadBalancer:192] [] Client: app-server instantiated a LoadBalancer: DynamicServerListLoadBalancer:{NFLoadBalancer:name=app-server,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:null
+2019-12-19 19:46:18,772 [INFO] [main] [com.netflix.loadbalancer.DynamicServerListLoadBalancer:150] [] DynamicServerListLoadBalancer for client app-server initialized: DynamicServerListLoadBalancer:{NFLoadBalancer:name=app-server,current list of Servers=[192.168.31.58:40100],Load balancer stats=Zone stats: {unknown=[Zone:unknown;	Instance count:1;	Active connections count: 0;	Circuit breaker tripped count: 0;	Active connections per server: 0.0;]
+},Server stats: [[Server:192.168.31.58:40100;	Zone:UNKNOWN;	Total Requests:0;	Successive connection failure:0;	Total blackout seconds:0;	Last connection made:Thu Jan 01 08:00:00 CST 1970;	First connection made: Thu Jan 01 08:00:00 CST 1970;	Active Connections:0;	total failure count in last (1000) msecs:0;	average resp time:0.0;	90 percentile resp time:0.0;	95 percentile resp time:0.0;	min resp time:0.0;	max resp time:0.0;	stddev resp time:0.0]
+]}ServerList:ConsulServerList{serviceId='app-server', tag=null}
 ```
