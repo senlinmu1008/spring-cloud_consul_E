@@ -111,3 +111,7 @@ ribbon:
     clients: app-server
 ```
 多个client可以用逗号分隔。
+##### 启动日志输出
+```Java
+2019-12-19 19:36:18,798 [INFO] [main] [com.netflix.loadbalancer.BaseLoadBalancer:192] [] Client: app-server instantiated a LoadBalancer: DynamicServerListLoadBalancer:{NFLoadBalancer:name=app-server,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:null
+```
