@@ -21,6 +21,8 @@ public class ClientApplication {
     public RestTemplate restTemplate() {
         HttpComponentsClientHttpRequestFactory httpRequestFactory = new HttpComponentsClientHttpRequestFactory();
         httpRequestFactory.setReadTimeout(30000); // 设置超时时间
+        httpRequestFactory.setConnectionRequestTimeout(1000);
+        httpRequestFactory.setConnectTimeout(1000);
         return new RestTemplate(httpRequestFactory);
     }
 
