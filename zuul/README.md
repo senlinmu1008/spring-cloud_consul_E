@@ -103,3 +103,13 @@ zuul.retryable: false
 zuul.routes.<route>.retryable: false
 ```
 
+##### zuul饥饿加载ribbon客户端
+只针对配置路由有效，对默认自动创建的路由无效。
+```yaml
+ribbon:
+  eager-load:
+    enabled: true
+    clients:
+      - app-client
+      - app-server
+```
