@@ -1,0 +1,28 @@
+server:
+  port: 40000
+spring:
+  application:
+    name: zuul
+  cloud:
+    consul:
+      enabled: true
+      host: 172.16.122.104
+      port: 8500
+      discovery:
+        enabled: true
+        instance-id: ${spring.application.name}-${spring.cloud.client.ipAddress}-${server.port}
+      config: # config\u914D\u7F6E\u5FC5\u987B\u8981\u5728bootstrap\u7684\u914D\u7F6E\u6587\u4EF6\u4E2D\uFF0C\u66F4\u65E9\u5730\u88AB\u6267\u884C\u8BFB\u53D6
+        enabled: true
+        format: YAML # \u8868\u793Aconsul\u4E0A\u9762\u6587\u4EF6\u7684\u683C\u5F0F \u6709\u56DB\u79CD YAML PROPERTIES KEY-VALUE FILES
+        data-key: configuration # \u8868\u793Aconsul\u4E0A\u9762\u7684KEY\u503C(\u6216\u8005\u8BF4\u6587\u4EF6\u7684\u540D\u5B57) \u9ED8\u8BA4\u662Fdata
+zuul:
+  routes:
+    feign:
+      path: /feign/**
+      serviceId: app-client
+      stripPrefix: false
+    restTemplate:
+      path: /template/**
+      serviceId: app-client
+      stripPrefix: false
+  ignored-patterns: /feign/get/** # \u5FFD\u7565\u7684\u8DEF\u5F84\u89C4\u5219
