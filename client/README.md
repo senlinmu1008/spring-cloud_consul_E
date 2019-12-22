@@ -110,7 +110,6 @@ ribbon:
     enabled: true
     clients: app-server
 ```
-多个client可以用逗号分隔。
 ##### 启动日志输出
 ```Java
 2019-12-19 19:46:18,772 [INFO] [main] [com.netflix.loadbalancer.DynamicServerListLoadBalancer:150] [] DynamicServerListLoadBalancer for client app-server initialized: DynamicServerListLoadBalancer:{NFLoadBalancer:name=app-server,current list of Servers=[192.168.31.58:40100],Load balancer stats=Zone stats: {unknown=[Zone:unknown;	Instance count:1;	Active connections count: 0;	Circuit breaker tripped count: 0;	Active connections per server: 0.0;]
