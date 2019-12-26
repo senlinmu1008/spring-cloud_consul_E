@@ -1,8 +1,5 @@
 # zuul(一)-面向服务路由
-* 手动创建url和服务的映射关系
-* 自动为service创建路由
-* cookie与请求头
-* Hystrix熔断机制和超时设置
+网关除了可以实现请求路由、负载均衡、熔断、服务聚合等功能外还可以将各个微服务的公共逻辑抽取出来统一在网关层实现，比如校验过滤、鉴权等操作。
 
 ## 开启zuul
 启动类添加注解`@EnableZuulProxy`和`@SpringCloudApplication`
