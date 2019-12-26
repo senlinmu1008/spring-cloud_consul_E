@@ -15,14 +15,3 @@ spring:
         enabled: true
         format: YAML
         data-key: configuration
-zuul:
-  routes:
-    feign:
-      path: /feign/**
-      serviceId: app-client
-      stripPrefix: false
-    restTemplate:
-      path: /template/**
-      serviceId: app-client
-      stripPrefix: false
-  ignored-patterns: /feign/get/**
