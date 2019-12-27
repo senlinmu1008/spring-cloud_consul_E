@@ -7,6 +7,7 @@ import com.alibaba.fastjson.JSON;
 import com.ecwid.consul.v1.ConsulClient;
 import com.ecwid.consul.v1.agent.model.Check;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -29,6 +30,7 @@ public class CleanController {
     @Autowired
     private ConsulClient consulClient;
 
+    @ApiOperation(value = "clear", notes = "服务清理")
     @DeleteMapping("/clear")
     public List clear(@RequestParam(required = false) String clearServiceName) {
         List<String> deleteList = new ArrayList<>();
