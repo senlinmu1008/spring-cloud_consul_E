@@ -81,7 +81,7 @@ zuul.addHostHeader: true
 ## Hystrix熔断机制和超时设置
 设置Hystrix超时时间
 ```yaml
-hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 60000
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 90000
 ```
 设置ribbon调用超时
 ```yaml
