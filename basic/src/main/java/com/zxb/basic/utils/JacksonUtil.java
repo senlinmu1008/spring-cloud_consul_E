@@ -1,5 +1,6 @@
 package com.zxb.basic.utils;
 
+import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -218,6 +219,32 @@ public class JacksonUtil {
             return xml;
         }
 
+    }
+
+    /**
+     * 按层级获取json值，不支持json数组
+     * @author zhaoxb
+     * @date 2020-01-07 09:20
+     * @return java.lang.String
+     */
+    public static String getJsonDataByPath(JSONObject jsonObject, String path) {
+        String ret = StringUtils.EMPTY;
+        if(jsonObject.isEmpty() || StringUtils.isBlank(path)) {
+            return ret;
+        }
+        String[] pathArr = path.split("\\.");
+        for (int i = 0; i < pathArr.length; i++) {
+            if(i == pathArr.length - 1) {
+                ret = jsonObject.getString(pathArr[i]);
+                break;
+            }
+            jsonObject = jsonObject.getJSONObject(pathArr[i]);
+        }
+        return ret;
+    }
+
+    public static String getJsonDataByPath(String jsonStr, String path) {
+       return StringUtils.isBlank(jsonStr) ? StringUtils.EMPTY : getJsonDataByPath(com.alibaba.fastjson.JSONObject.parseObject(jsonStr), path);
     }
 
 }
