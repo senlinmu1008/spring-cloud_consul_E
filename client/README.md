@@ -27,7 +27,7 @@ spring:
 ```
 
 ## Feign声明式调用
-***启动类添加注解`@EnableFeignClients(basePackages = {"com.zxb.basic.feign"})`***
+***启动类添加注解`@EnableFeignClients(basePackages = {"net.zhaoxiaobin.basic.feign"})`***
 
 ##### Feign接口
 ```Java

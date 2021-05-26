@@ -25,6 +25,6 @@ swagger:
       version: 1.0
       contact:
         name: zhaoxb
-      base-package: com.zxb.server.web
+      base-package: net.zhaoxiaobin.server.web
       base-path: /**
       exclude-path: /error, /ops/**
