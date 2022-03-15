@@ -8,9 +8,9 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>basic</module>
         <module>server</module>
         <module>client</module>
-        <module>basic</module>
         <module>zuul</module>
     </modules>
 
@@ -149,6 +149,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <executable>true</executable>
+                    <classifier>exec</classifier>
                 </configuration>
             </plugin>
             <!-- 编译打包跳过测试 -->
