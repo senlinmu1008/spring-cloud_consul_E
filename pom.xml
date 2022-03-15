@@ -142,6 +142,17 @@
         </dependencies>
     </dependencyManagement>
 
+    <!--
+    问题：Spring Boot项目想单独作为库被其它工程引用，打包报错找不到main class，创建main class后其它工程引用就找不到里面的类。
+
+    原因：jar分为2种，1:可被执行jar、2:被依赖当做库使用；使用spring-boot-maven-plugin插件打的包默认为可执行jar包，需要有main class，
+    但是可执行jar包不能被其它工程依赖，即使强行依赖也无法获取里边的类。
+
+    解决方法1：创建main class后依旧被其它工程引用，spring-boot-maven-plugin插件增加<classifier>exec</classifier>
+    这样打包后可被执行的jar包就会以exec结尾，另一个就会被引用当做库使用。
+
+    解决方法2：不创建main class，不使用spring-boot-maven-plugin插件，如果子工程想排除，可以通过<skip>true</skip>配置实现。
+    -->
     <build>
         <plugins>
             <plugin>
@@ -149,7 +160,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <executable>true</executable>
-                    <classifier>exec</classifier>
+                    <!--<classifier>exec</classifier>-->
                 </configuration>
             </plugin>
             <!-- 编译打包跳过测试 -->
